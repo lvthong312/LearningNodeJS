@@ -51,6 +51,7 @@ ZOOM_ACCESS_TOKEN=
 5. You can see Your **Account ID**, **Client ID**, **Client Secret** bellow 
 
    <img width="443" alt="image" src="https://github.com/user-attachments/assets/cf7062a6-eb72-49be-9da6-977fd7db4168">
+   
 
 ### How to get ZOOM_AUTHORIZE
 
@@ -80,6 +81,25 @@ curl -X POST localhost:8000/access-token
 Or Use Postman
 
 <img width="826" alt="image" src="https://github.com/user-attachments/assets/9c0a6990-8c09-460b-b873-3cf6280f3140">
+
+## Step3: Add Permission for App
+
+1. Click **Scope** in left panel and click **Add Scope**
+
+<img width="1295" alt="image" src="https://github.com/user-attachments/assets/f1231734-f258-46a5-86f4-85d403e13ad7">
+
+2. Access permission for App and **You can add any role else if needed to use**: 
+  
+ **View all user meeting:**
+ **View and manage all user meeting:**
+ **View and manage sub account's user meeting:**
+ 
+  <img width="1407" alt="Screenshot 2024-08-06 at 09 26 29" src="https://github.com/user-attachments/assets/0970a7f4-fe11-4dd6-8246-13d27bc92e7a">
+
+
+<img width="1428" alt="Screenshot 2024-08-06 at 09 26 36" src="https://github.com/user-attachments/assets/dd03d299-fe12-48db-9d86-b818e50f2875">
+
+  <img width="1377" alt="Screenshot 2024-08-06 at 09 26 44" src="https://github.com/user-attachments/assets/7e464c46-b88e-42f1-8ad0-bd8e0db01cf4">
 
 
 <h1>We have completed Setup for the project. Now please read documentation bellow</h1>
