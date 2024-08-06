@@ -14,7 +14,10 @@
 
 # Getting Start
 
-## Step 1: After clone the project run
+## Step 1: Clone the project and run
+```sh
+git clone https://github.com/lvthong312/LearningNodeJS.git
+```
 
   ```sh
 cd ZoomApi && yarn install
