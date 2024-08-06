@@ -21,6 +21,9 @@ EndPoint: /access-token:
 
 **Description**: Create new Meeting
 
+**start_url**: is a URL to start the meeting
+**join_url**: is a URL to join the meeting
+
 **Request**: 
 ```js
 {
