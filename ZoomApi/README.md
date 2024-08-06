@@ -1,4 +1,174 @@
 
+# List API
+
+## Access Token
+
+EndPoint: /access-token: 
+
+**Description**: Create a Access Token to use another api of Zoom
+
+## Refresh Token
+
+1. EndPoint: /refresh-token
+
+2. Description: Refresh a Access Token to use another api of Zoom
+
+##  Create new Meeting
+
+**EndPoint**: /create-meeting
+
+**Documentation**: [https://developers.zoom.us/docs/api/rest/reference/zoom-api/methods/#operation/meetingCreate](https://developers.zoom.us/docs/api/rest/reference/zoom-api/methods/#operation/meetingCreate)
+
+**Description**: Create new Meeting
+
+**Request**: 
+```js
+{
+   userId: "abcd",
+   payload: {
+      "topic": "TOPIC",
+      "type": "2",
+      "duration": "30",
+      "start_time": "2020 -09 - 16T11:00:00",
+      "timezone": "Asia / Tokyo",
+      "password": "123456",
+      "agenda": "AGENDA"
+  }
+}
+```
+
+**Response**: 
+```js
+{
+    "uuid": "==",
+    "id": ,
+    "host_id": "",
+    "host_email": "thongluong.edu@gmail.com",
+    "topic": "TOPIC",
+    "type": 2,
+    "status": "waiting",
+    "start_time": "2024-08-06T07:11:10Z",
+    "duration": 30,
+    "timezone": "Asia/Saigon",
+    "agenda": "AGENDA",
+    "created_at": "2024-08-06T07:11:10Z",
+    "start_url": "https://us05web.I6IjAwMDAwMS",
+    "join_url": "https://us05web.zoom.us/1",
+    "password": "",
+    "h323_password": "",
+    "pstn_password": "",
+    "encrypted_password": ".1",
+    "settings": {
+        "host_video": false,
+        "participant_video": false,
+        "cn_meeting": false,
+        "in_meeting": false,
+        "join_before_host": false,
+        "jbh_time": 0,
+        "mute_upon_entry": false,
+        "watermark": false,
+        "use_pmi": false,
+        "approval_type": 2,
+        "audio": "voip",
+        "auto_recording": "none",
+        "enforce_login": false,
+        "enforce_login_domains": "",
+        "alternative_hosts": "",
+        "alternative_host_update_polls": false,
+        "close_registration": false,
+        "show_share_button": false,
+        "allow_multiple_devices": false,
+        "registrants_confirmation_email": true,
+        "waiting_room": false,
+        "request_permission_to_unmute_participants": false,
+        "registrants_email_notification": true,
+        "meeting_authentication": false,
+        "encryption_type": "enhanced_encryption",
+        "approved_or_denied_countries_or_regions": {
+            "enable": false
+        },
+        "breakout_room": {
+            "enable": false
+        },
+        "internal_meeting": false,
+        "continuous_meeting_chat": {
+            "enable": false,
+            "auto_add_invited_external_users": false
+        },
+        "participant_focused_meeting": false,
+        "push_change_to_calendar": false,
+        "resources": [],
+        "auto_start_meeting_summary": false,
+        "alternative_hosts_email_notification": true,
+        "show_join_info": false,
+        "device_testing": false,
+        "focus_mode": false,
+        "meeting_invitees": [],
+        "enable_dedicated_group_chat": false,
+        "private_meeting": false,
+        "email_notification": true,
+        "host_save_video_order": false,
+        "sign_language_interpretation": {
+            "enable": false
+        },
+        "email_in_attendee_report": false
+    },
+    "pre_schedule": false
+}
+```
+
+## Create New User
+**EndPoint**: /create-user
+
+**Description**: Refresh an Access Token to use another API of Zoom
+
+## Get Current User
+
+**EndPoint**: /get-user-me
+
+**Description**: Get the Current User Profile of Zoom
+
+**id**: is a UserId to use to create a new meeting and do something else
+
+**Response**: 
+```js
+{
+    "id": "",  
+    "first_name": "",
+    "last_name": "L",
+    "display_name": "Thong L",
+    "email": "thongluong.edu@gmail.com",
+    "type": 1,
+    "role_name": "Owner",
+    "pmi": ,
+    "use_pmi": false,
+    "personal_meeting_url": "",
+    "timezone": "Asia/Saigon",
+    "verified": 1,
+    "dept": "",
+    "created_at": "2024-08-06T00:47:20Z",
+    "last_login_time": "2024-08-06T06:35:24Z",
+    "cms_user_id": "",
+    "jid": "@xmpp.zoom.us",
+    "group_ids": [],
+    "im_group_ids": [],
+    "account_id": "",
+    "language": "en-US",
+    "phone_country": "",
+    "phone_number": "",
+    "status": "active",
+    "job_title": "",
+    "location": "",
+    "login_types": [
+        100
+    ],
+    "role_id": "0",
+    "account_number": ,
+    "cluster": "us05",
+    "user_created_at": "2024-08-06T00:47:20Z"
+}
+```
+
 # Getting Start
 
 ## Step 1: After clone the project run
@@ -13,6 +183,7 @@ cd ZoomApi && yarn install
 ZOOM_ACCOUNT_ID=
 ZOOM_API=https://api.zoom.us
 ZOOM_AUTHORIZE=
+ZOOM_ACCESS_TOKEN=
 ```
 
 ### How to get ZOOM_ACCOUNT_ID, client_id, client_secret
@@ -46,6 +217,25 @@ ZOOM_AUTHORIZE=
 3.  Copy Your Encode to ZOM_AUTHORIZE
 
     <img width="434" alt="image" src="https://github.com/user-attachments/assets/e7199330-2db9-4ddb-b9b5-f895ba468c1d">
+
+### How to get ZOOM_ACCESS_TOKEN
+
+1. Start Server of ZoomApi
+   
+```sh
+node index.js
+
+2. Open **Terminal** and run
+
+```sh
+curl -X POST localhost:8000/access-token
+```
+
+Or Use Postman
+
+<img width="826" alt="image" src="https://github.com/user-attachments/assets/9c0a6990-8c09-460b-b873-3cf6280f3140">
+
+
 
 
 
