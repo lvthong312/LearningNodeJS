@@ -1,8 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const { fetcher } = require('./utils/axios/AxiosInstance');
-const { generateToken, refreshToken, createUser } = require('./utils/auth/auth');
-const { getUserMe, createMeeting, deleteMeeting } = require('./utils/auth/ZoomMeetingHelper');
+const { generateToken, refreshToken, createUser, getUserMe } = require('./utils/auth/authHelper');
+const { createMeeting, deleteMeeting, updateMeeting, getListMeeting, getMeeting, getUpcomingMeetings } = require('./utils/auth/ZoomMeetingHelper');
 const app = express();
 
 app.use(express.json())
@@ -27,24 +27,50 @@ app.post(`/refresh-token`, async (req, res) => {
 })
 
 app.post(`/create-user`, async (req, res) => {
+    // TODO must access permission role
     const response = await createUser();
-    console.log('createUser: ', response)
     return res.json({})
 })
 
 app.get(`/get-user-me`, async (req, res) => {
     const response = await getUserMe();
-    // TODO Must adjust response follow your feature
+    return res.json(response.data) // <-- Must adjust response follow your feature
+})
+
+app.get(`/get-meeting`, async (req, res) => {
+    const { meetingId } = req?.query
+    const response = await getMeeting(meetingId);
+    return res.json(response.data)
+})
+
+app.get(`/get-upcoming-meetings`, async (req, res) => {
+    const { userId } = req?.query
+    const response = await getUpcomingMeetings(userId);
+    return res.json(response.data)
+})
+
+app.get(`/get-meetings`, async (req, res) => {
+    const { userId } = req?.query
+    const response = await getListMeeting(userId);
     return res.json(response.data)
 })
 
 app.post(`/create-meeting`, async (req, res) => {
-    const response = await createMeeting(req?.body?.userId, req?.body?.payload);
+    const { userId, payload } = req?.body
+    const response = await createMeeting(userId, payload);
+    return res.json(response.data)
+})
+
+
+app.post(`/update-meeting`, async (req, res) => {
+    const { meetingId, payload } = req?.body
+    const response = await updateMeeting(meetingId);
     return res.json(response.data)
 })
 
 app.delete(`/delete-meeting`, async (req, res) => {
-    const response = await deleteMeeting(req.query.meetingId);
+    const { meetingId } = req.query
+    const response = await deleteMeeting(meetingId);
     return res.json(response.data)
 })
 

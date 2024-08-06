@@ -1,5 +1,18 @@
 const { fetcher } = require("../axios/AxiosInstance")
 
+const getUserMe = async () => {
+    try {
+        const response = await fetcher.get('https://api.zoom.us/v2/users/me', {
+            headers: {
+                'Authorization': `Bearer ${process.env.ZOOM_ACCESS_TOKEN}`
+            },
+        })
+        return response
+    } catch (error) {
+        return Promise.reject(error);
+    }
+}
+
 const createUser = async () => {
     try {
         const response = await fetcher.post(`${process.env.ZOOM_API}/v2/users`,
@@ -13,7 +26,7 @@ const createUser = async () => {
                     "password": "if42!LfH@",
                     "type": 1,
                     "feature": {
-                        "zoom_phone": true,
+                        "zoom_phone": false,
                         "zoom_one_type": 16
                     },
                     "plan_united_type": "1"
@@ -21,7 +34,6 @@ const createUser = async () => {
             }
             , {
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
                     'Authorization': `Bearer ${process.env.ZOOM_ACCESS_TOKEN}`
                 },
                 // params: {
@@ -80,5 +92,6 @@ const refreshToken = async () => {
 module.exports = {
     generateToken,
     refreshToken,
-    createUser
+    createUser,
+    getUserMe
 }
