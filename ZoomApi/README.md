@@ -3,21 +3,23 @@
 
 ## Access Token
 
+[Documentation](https://developers.zoom.us/docs/integrations/oauth/)
+
 EndPoint: /access-token: 
 
 **Description**: Create a Access Token to use another api of Zoom
 
 ## Refresh Token
 
-1. EndPoint: /refresh-token
+**EndPoint**: /refresh-token
 
-2. Description: Refresh an Access Token to use another api of Zoom
+**Description**: Refresh an Access Token to use another api of Zoom
 
 ##  Create new Meeting
 
-**EndPoint**: /create-meeting
+[Documentation](https://developers.zoom.us/docs/api/rest/reference/zoom-api/methods/#operation/meetingCreate)
 
-**Documentation**: [https://developers.zoom.us/docs/api/rest/reference/zoom-api/methods/#operation/meetingCreate](https://developers.zoom.us/docs/api/rest/reference/zoom-api/methods/#operation/meetingCreate)
+**EndPoint**: /create-meeting
 
 **Description**: Create new Meeting
 
@@ -120,6 +122,13 @@ EndPoint: /access-token:
     "pre_schedule": false
 }
 ```
+
+## Delete Meeting
+[Documentation](https://developers.zoom.us/docs/api/rest/reference/zoom-api/methods/#operation/meetingDelete)
+
+**EndPoint**: /delete-meeting?meetingId=81047304804
+   
+**Description**: Delete a Meeting
 
 ## Create New User
 **EndPoint**: /create-user
