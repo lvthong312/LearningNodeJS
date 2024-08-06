@@ -5,12 +5,12 @@
 [Official Documentation of ZoomUS's Meeting](https://developers.zoom.us/docs/api/rest/reference/zoom-api/methods/#operation/meetingAppAdd)
 
 # Features
-### Get Access Token
-### Refresh Token 
-### Create new Meeting
-### Delete Meeting
-### Create New User
-### Get Current User
+1. Get Access Token
+2. Refresh Token 
+3. Create new Meeting
+4. Delete Meeting
+5. Create New User
+6. Get Current User
 
 # Getting Start
 
