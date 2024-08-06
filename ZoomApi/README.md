@@ -11,7 +11,7 @@ EndPoint: /access-token:
 
 1. EndPoint: /refresh-token
 
-2. Description: Refresh a Access Token to use another api of Zoom
+2. Description: Refresh an Access Token to use another api of Zoom
 
 ##  Create new Meeting
 
@@ -21,8 +21,9 @@ EndPoint: /access-token:
 
 **Description**: Create new Meeting
 
-**start_url**: is a URL to start the meeting
-**join_url**: is a URL to join the meeting
+**start_url** response field: is a URL to start the meeting
+
+**join_url** response field: is a URL to join the meeting
 
 **Request**: 
 ```js
@@ -131,7 +132,7 @@ EndPoint: /access-token:
 
 **Description**: Get the Current User Profile of Zoom
 
-**id**: is a UserId to use to create a new meeting and do something else
+**id** response field: is a UserId to use to create a new meeting and do something else
 
 **Response**: 
 ```js
