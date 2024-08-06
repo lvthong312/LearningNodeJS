@@ -1,3 +1,9 @@
+# Reference
+
+[Official Documentation of ZoomUS's User](https://developers.zoom.us/docs/api/rest/reference/user/methods/#operation/contactGroupUpdate)
+
+[Official Documentation of ZoomUS's Meeting](https://developers.zoom.us/docs/api/rest/reference/zoom-api/methods/#operation/meetingAppAdd)
+
 # Getting Start
 
 ## Step 1: After clone the project run
@@ -200,6 +206,11 @@ EndPoint: /access-token:
 **Description**: Delete a Meeting
 
 ## Create New User
+
+[Documentation](https://developers.zoom.us/docs/api/rest/reference/user/methods/#operation/userCreate)
+
+[Documentation of Role](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064983)
+
 **EndPoint**: /create-user
 
 **Description**: Refresh an Access Token to use another API of Zoom
