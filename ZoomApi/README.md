@@ -8,7 +8,7 @@
 1. Get Access Token
 2. Refresh Token 
 3. Create new Meeting
-4. Get Meetings
+4. Get Meeting Detail
 5. Get List Meetings
 6. Get Upcoming Meetings
 7. Delete Meeting
