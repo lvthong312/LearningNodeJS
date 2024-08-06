@@ -4,6 +4,14 @@
 
 [Official Documentation of ZoomUS's Meeting](https://developers.zoom.us/docs/api/rest/reference/zoom-api/methods/#operation/meetingAppAdd)
 
+# Features
+### Get Access Token
+### Refresh Token 
+### Create new Meeting
+### Delete Meeting
+### Create New User
+### Get Current User
+
 # Getting Start
 
 ## Step 1: After clone the project run
@@ -90,7 +98,7 @@ EndPoint: /access-token:
 
 **Description**: Refresh an Access Token to use another api of Zoom
 
-##  Create new Meeting
+## Create new Meeting
 
 [Documentation](https://developers.zoom.us/docs/api/rest/reference/zoom-api/methods/#operation/meetingCreate)
 
