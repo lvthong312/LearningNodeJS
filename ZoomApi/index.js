@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const { fetcher } = require('./utils/axios/AxiosInstance');
 const { generateToken, refreshToken, createUser } = require('./utils/auth/auth');
-const { getUserMe, createMeeting } = require('./utils/auth/ZoomMeetingHelper');
+const { getUserMe, createMeeting, deleteMeeting } = require('./utils/auth/ZoomMeetingHelper');
 const app = express();
 
 app.use(express.json())
@@ -37,9 +37,14 @@ app.get(`/get-user-me`, async (req, res) => {
     // TODO Must adjust response follow your feature
     return res.json(response.data)
 })
+
 app.post(`/create-meeting`, async (req, res) => {
     const response = await createMeeting(req?.body?.userId, req?.body?.payload);
-    console.log('createMeeting: ', JSON.stringify(response.data, null, 2))
+    return res.json(response.data)
+})
+
+app.delete(`/delete-meeting`, async (req, res) => {
+    const response = await deleteMeeting(req.query.meetingId);
     return res.json(response.data)
 })
 

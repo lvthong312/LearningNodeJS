@@ -12,6 +12,7 @@ const getUserMe = async () => {
         return Promise.reject(error);
     }
 }
+
 const createMeeting = async (userId, payload) => {
     const { topic, type, duration, start_time, timezone, password, agenda } = payload
     try {
@@ -34,9 +35,21 @@ const createMeeting = async (userId, payload) => {
     }
 }
 
-
+const deleteMeeting = async (meetingId) => {
+    try {
+        const response = await fetcher.delete(`https://api.zoom.us/v2/meetings/${meetingId}`, {
+            headers: {
+                'Authorization': `Bearer ${process.env.ZOOM_ACCESS_TOKEN}`
+            },
+        })
+        return response
+    } catch (error) {
+        return Promise.reject(error);
+    }
+}
 
 module.exports = {
     getUserMe,
-    createMeeting
+    createMeeting,
+    deleteMeeting
 }
