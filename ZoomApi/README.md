@@ -8,9 +8,12 @@
 1. Get Access Token
 2. Refresh Token 
 3. Create new Meeting
-4. Delete Meeting
-5. Create New User
-6. Get Current User
+4. Get Meetings
+5. Get List Meetings
+6. Get Upcoming Meetings
+7. Delete Meeting
+8. Create New User
+9. Get Current User
 
 # Getting Start
 
@@ -111,11 +114,15 @@ Or Use Postman
 
 [Documentation](https://developers.zoom.us/docs/integrations/oauth/)
 
+### Methos POST
+
 EndPoint: /access-token: 
 
 **Description**: Create a Access Token to use another api of Zoom
 
 ## Refresh Token
+
+### Methos POST
 
 **EndPoint**: /refresh-token
 
@@ -124,6 +131,8 @@ EndPoint: /access-token:
 ## Create new Meeting
 
 [Documentation](https://developers.zoom.us/docs/api/rest/reference/zoom-api/methods/#operation/meetingCreate)
+
+### Methos POST
 
 **EndPoint**: /create-meeting
 
@@ -229,14 +238,155 @@ EndPoint: /access-token:
 }
 ```
 
+## Get Meeting Detail by Id
+
+### Methos GET
+
+**EndPoint**: /get-meeting
+
+**Description**: Get a Detail meeting by meetingId
+
+**Request**:
+
+```js
+params: {
+"meetingId": "85887184206"
+}
+``
+
+
+**Response: **
+
+```js
+{
+    "uuid": "==",
+    "id": "",
+    "host_id": "",
+    "host_email": "thongluong.edu@gmail.com",
+    "assistant_id": "",
+    "topic": "TOPIC",
+    "type": 2,
+    "status": "waiting",
+    "start_time": "2024-08-06T07:11:10Z",
+    "duration": 30,
+    "timezone": "Asia/Saigon",
+    "agenda": "AGENDA",
+    "created_at": "2024-08-06T07:11:10Z",
+    "start_url": "https:/",
+    "join_url": "https://us05web.zoom.us/j/8588",
+    "password": "",
+    "h323_password": "",
+    "pstn_password": "",
+    "encrypted_password": ".1",
+    "settings": {
+        "host_video": false,
+        "participant_video": false,
+        "cn_meeting": false,
+        "in_meeting": false,
+        "join_before_host": false,
+        "jbh_time": 0,
+        "mute_upon_entry": false,
+        "watermark": false,
+        "use_pmi": false,
+        "approval_type": 2,
+        "audio": "voip",
+        "auto_recording": "none",
+        "enforce_login": false,
+        "enforce_login_domains": "",
+        "alternative_hosts": "",
+        "alternative_host_update_polls": false,
+        "close_registration": false,
+        "show_share_button": false,
+        "allow_multiple_devices": false,
+        "registrants_confirmation_email": true,
+        "waiting_room": false,
+        "request_permission_to_unmute_participants": false,
+        "registrants_email_notification": true,
+        "meeting_authentication": false,
+        "encryption_type": "enhanced_encryption",
+        "approved_or_denied_countries_or_regions": {
+            "enable": false
+        },
+        "breakout_room": {
+            "enable": false
+        },
+        "internal_meeting": false,
+        "continuous_meeting_chat": {
+            "enable": false,
+            "auto_add_invited_external_users": false
+        },
+        "participant_focused_meeting": false,
+        "push_change_to_calendar": false,
+        "resources": [],
+        "auto_start_meeting_summary": false,
+        "alternative_hosts_email_notification": true,
+        "show_join_info": false,
+        "device_testing": false,
+        "focus_mode": false,
+        "meeting_invitees": [],
+        "enable_dedicated_group_chat": false,
+        "private_meeting": false,
+        "email_notification": true,
+        "host_save_video_order": false,
+        "sign_language_interpretation": {
+            "enable": false
+        },
+        "email_in_attendee_report": false
+    },
+    "pre_schedule": false
+}
+```
+
+## Get List Meetings
+
+### Methos GET
+
+**EndPoint**: /get-meetings
+
+**Description**: Get list meeting of account
+
+**Request:**
+
+```js
+params: {
+"userId": "123"
+}
+```
+
+<img width="1214" alt="image" src="https://github.com/user-attachments/assets/85dc7fcc-0a1f-4666-9a57-fcf25484efe1">
+
+
+## Get Upcoming Meetings
+
+### Methos GET
+
+**EndPoint**: /get-upcoming-meetings
+
+**Description**: Get List meetings upcoming
+
+**Request:**
+
+```js
+params: {
+"userId": "123"
+}
+```
+
+<img width="1107" alt="image" src="https://github.com/user-attachments/assets/42cf6e22-01cf-4497-813b-607ddc9e5ce1">
+
+
 ## Delete Meeting
 [Documentation](https://developers.zoom.us/docs/api/rest/reference/zoom-api/methods/#operation/meetingDelete)
+
+### Methos DELETE
 
 **EndPoint**: /delete-meeting?meetingId=81047304804
    
 **Description**: Delete a Meeting
 
 ## Create New User
+
+### Methos POST
 
 [Documentation](https://developers.zoom.us/docs/api/rest/reference/user/methods/#operation/userCreate)
 
@@ -247,6 +397,8 @@ EndPoint: /access-token:
 **Description**: Refresh an Access Token to use another API of Zoom
 
 ## Get Current User
+
+### Methos GET
 
 **EndPoint**: /get-user-me
 
