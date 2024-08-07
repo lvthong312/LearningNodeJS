@@ -16,7 +16,7 @@
 
 <img width="1025" alt="image" src="https://github.com/user-attachments/assets/4451cd7d-9bae-45a0-afa1-6d8449ee4087">
 
-## Get conference meeting
+## Get conference Meeting
 
 <img width="1123" alt="image" src="https://github.com/user-attachments/assets/7313be55-3b2c-48e5-b9d8-8174aa66d9c0">
 
@@ -88,3 +88,38 @@ If you're using a new Google Cloud project to complete this quickstart, configur
 node index.js
 ```
 
+# API
+
+## Create Meeting
+
+```js
+/**
+ *  enum AccessType {
+        ACCESS_TYPE_UNSPECIFIED = 0,
+        OPEN = 1,               // <--- Anyone with the join information (for example, the URL or phone access information) can join without knocking.
+        TRUSTED = 2,            // <--- Members of the host's organization, invited external users, and dial-in users can join without knocking. Everyone else must knock.
+        RESTRICTED = 3          // <--- Only invitees can join without knocking. Everyone else must knock.
+    }
+    enum EntryPointAccess {
+        ENTRY_POINT_ACCESS_UNSPECIFIED = 0,     // <--- Unused.
+        ALL = 1,                                // <--- All entry points are allowed.
+        CREATOR_APP_ONLY = 2                    // <---  Only entry points owned by the Google Cloud project that created the space can be used to join meetings in this space. Apps can use the Meet Embed SDK Web or mobile Meet SDKs to create owned entry points.
+    }
+ */
+```
+
+```js
+const payload = {
+        config: {
+            "accessType": "TRUSTED",
+            "entryPointAccess": "ALL"
+        }
+    }
+```
+## Get Meeting
+
+## End Active Meeting 
+
+## Get conference Meeting
+
+## Get conference Meeting
