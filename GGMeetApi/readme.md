@@ -3,6 +3,10 @@
 
   [Google Meeting Pricing](https://workspace.google.com/pricing?utm_source=google&utm_medium=cpc&utm_campaign=1707696-Workspace-APAC-VN-en-BKWS-BRO-HV&utm_content=text-ad-none-none-DEV_c-CRE_629153990126-ADGP_Hybrid+%7C+BKWS+-+BRO+%7C+Txt-GSuite-Price-KWID_43700077974759129-kwd-392046914787&userloc_9047167-network_g&utm_term=KW_google+business+suite+pricing&gad_source=1&gclid=Cj0KCQjwtsy1BhD7ARIsAHOi4xb1K5mgZbLpQ6ogXDjYsco_FezQudrskeX0hKk9w7EP8eYZkK8YKe4aAvUtEALw_wcB&gclsrc=aw.ds&hl=en_vn)
 
+  [Google Meet API Limit](https://developers.google.com/meet/api/guides/limits)
+
+  [Google Meet Time Limit](https://support.google.com/meet/answer/7317473?sjid=655534175660699134-AP#length-limits&zippy=%2Cmeeting-length-limits)
+
 # Example 
 
 ## Create Meeting
