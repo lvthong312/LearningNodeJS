@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const { fetcher } = require('./utils/axios/AxiosInstance');
-const { generateToken, refreshToken, createUser, getUserMe } = require('./utils/auth/authHelper');
+const { generateToken, refreshToken, createUser, getUserMe, getAccountMe } = require('./utils/auth/authHelper');
 const { createMeeting, deleteMeeting, updateMeeting, getListMeeting, getMeeting, getUpcomingMeetings } = require('./utils/auth/ZoomMeetingHelper');
 const app = express();
 
@@ -29,11 +29,17 @@ app.post(`/refresh-token`, async (req, res) => {
 app.post(`/create-user`, async (req, res) => {
     // TODO must access permission role
     const response = await createUser();
+    console.log('createUser: ', response.data)
     return res.json({})
 })
 
 app.get(`/get-user-me`, async (req, res) => {
     const response = await getUserMe();
+    return res.json(response.data) // <-- Must adjust response follow your feature
+})
+
+app.get(`/get-account-me`, async (req, res) => {
+    const response = await getAccountMe();
     return res.json(response.data) // <-- Must adjust response follow your feature
 })
 

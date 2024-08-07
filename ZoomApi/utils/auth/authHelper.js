@@ -1,5 +1,18 @@
 const { fetcher } = require("../axios/AxiosInstance")
 
+const getAccountMe = async () => {
+    try {
+        const response = await fetcher.get('https://api.zoom.us/v2/accounts/me/settings', {
+            headers: {
+                'Authorization': `Bearer ${process.env.ZOOM_ACCESS_TOKEN}`
+            },
+        })
+        return response
+    } catch (error) {
+        return Promise.reject(error);
+    }
+}
+
 const getUserMe = async () => {
     try {
         const response = await fetcher.get('https://api.zoom.us/v2/users/me', {
@@ -93,5 +106,6 @@ module.exports = {
     generateToken,
     refreshToken,
     createUser,
-    getUserMe
+    getUserMe,
+    getAccountMe
 }
