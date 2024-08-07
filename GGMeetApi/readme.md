@@ -7,6 +7,8 @@
 
   [Google Meet Time Limit](https://support.google.com/meet/answer/7317473?sjid=655534175660699134-AP#length-limits&zippy=%2Cmeeting-length-limits)
 
+  [Public Or Add User Test](https://console.cloud.google.com/apis/credentials/consent)
+  
 # Example 
 
 ## Create Meeting
