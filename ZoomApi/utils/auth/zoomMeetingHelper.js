@@ -49,7 +49,13 @@ const createMeeting = async (userId, payload) => {
             "start_time": start_time,
             "timezone": timezone,
             "password": password,
-            "agenda": agenda
+            "agenda": agenda,
+            "settings": {
+                "jbh_time": 0,
+                "join_before_host": true,
+                "host_video": false
+                // "host_video": "false"
+            }
         }, {
             headers: {
                 'Authorization': `Bearer ${process.env.ZOOM_ACCESS_TOKEN}`
