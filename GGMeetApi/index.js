@@ -1,6 +1,6 @@
 const express = require('express');
 const { authorize } = require('./utils/authHelper');
-const { createMeeting, getMeeting, endActiveConference, listConferenceRecords } = require('./utils/meetingHelper');
+const { createMeeting, getMeeting, endActiveConference, listConferenceRecords, createEventCalendar } = require('./utils/meetingHelper');
 const app = express();
 const port = 8000
 app.use(express.json())
@@ -58,6 +58,13 @@ app.post('/list-conference-records', authorize, async (req, res) => {
     const response = await listConferenceRecords(req.authClient, payload)
     return res.json(response)
 })
+
+app.post('/create-calendar-events', authorize, async (req, res) => {
+    const payload = {}
+    const response = await createEventCalendar(req.authClient, payload)
+    return res.json(response)
+})
+
 
 app.listen(port, () => {
     console.log('Server is starting with port ', port)

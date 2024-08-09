@@ -10,6 +10,8 @@
  */
 // const space = {}
 
+const { google } = require('googleapis');
+const { uuid } = require('uuidv4');
 const { SpacesServiceClient, ConferenceRecordsServiceClient } = require('@google-apps/meet').v2;
 
 async function getMeeting(authClient, payload) {
@@ -90,10 +92,59 @@ async function listConferenceRecords(authClient) {
 }
 
 
+async function createEventCalendar(authClient) {
+    const calendar = google.calendar({ version: 'v3', authClient });
+    const event = {
+        'summary': 'Google I/O 20024',
+        'location': '800 Howard St., San Francisco, CA 94103',
+        'description': 'A chance to hear more about Google\'s developer products.',
+        'start': {
+            'dateTime': '2024-08-11T09:00:00-07:00',
+            'timeZone': 'Asia/Ho_Chi_Minh',
+        },
+        'end': {
+            'dateTime': '2024-08-11T17:00:00-07:00',
+            'timeZone': 'Asia/Ho_Chi_Minh',
+        },
+        // 'recurrence': [
+        //     'RRULE:FREQ=DAILY;COUNT=2'
+        // ],
+        'attendees': [
+            { 'email': 'lvthong312@gmail.com' },
+        ],
+        'reminders': {
+            'useDefault': false,
+            'overrides': [
+                { 'method': 'email', 'minutes': 24 * 60 },
+                { 'method': 'popup', 'minutes': 10 },
+            ],
+        },
+        'conferenceData': {
+            'createRequest': {
+                'requestId': uuid(),
+                'conferenceSolutionKey': {
+                    'type': 'hangoutsMeet'
+                }
+            }
+        }
+    };
+    const data = await calendar.events.insert({
+        auth: authClient,
+        calendarId: 'primary',
+        resource: event,
+        sendNotifications: true,
+        conferenceDataVersion: 1
+    });
+
+    return data.data
+}
+
+
 module.exports = {
     getMeeting,
     createMeeting,
     updateMeeting,
     endActiveConference,
-    listConferenceRecords
+    listConferenceRecords,
+    createEventCalendar
 }
